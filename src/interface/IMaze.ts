@@ -1,6 +1,6 @@
 import { Cell } from './Cell';
 
-export interface Maze {
+export interface IMaze {
     witdhCell: number;
     rows: number;
     colums: number;
