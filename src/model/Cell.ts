@@ -6,4 +6,9 @@ export class Cell {
         this.rowNum = rowNum;
         this.colNum = colNum;
     }
+
+    show(sizeCell: number) {
+        var x = this.rowNum * sizeCell;
+        var y = this.colNum * sizeCell;
+    }
 }

@@ -8,7 +8,7 @@
 
 .maze {
     background-color: black;
-    width: 1600px;
+    width: 700px;
     height: 700px;
     border: 15px solid #333300;
 
@@ -16,4 +16,13 @@
         color: white;
         font-size: 60px;
     }
+}
+
+.cell {
+    width: 70px;
+    height: 70px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
 }
