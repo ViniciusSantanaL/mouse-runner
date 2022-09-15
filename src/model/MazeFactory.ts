@@ -1,4 +1,4 @@
-import { Cell } from 'interface/Cell';
+import { ICell } from 'interface/ICell';
 import { IMaze } from 'interface/IMaze';
 import { CellFactory } from './CellFactory';
 
@@ -9,7 +9,7 @@ export abstract class MazeFactory {
         maze.colums = Math.floor(width / widthCell);
 
         for (let r = 0; r < maze.rows; r++) {
-            const row: Array<Cell> = [];
+            const row: Array<ICell> = [];
             for (let c = 0; c < maze.colums; c++) {
                 const cell = CellFactory.setup();
                 row.push(cell);

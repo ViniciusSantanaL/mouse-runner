@@ -1,3 +1,4 @@
+import Cell from 'components/Cell';
 import { IMaze } from 'interface/IMaze';
 import { MazeFactory } from 'model/MazeFactory';
 import { useState } from 'react';
@@ -11,10 +12,8 @@ function Maze() {
             <div className="maze">
                 {maze.grid.map((row, index) => (
                     <div key={index}>
-                        {row.map((col, index) => (
-                            <div key={index} className="cell">
-                                Teste
-                            </div>
+                        {row.map((cell, index) => (
+                            <Cell key={index} cell={cell} />
                         ))}
                     </div>
                 ))}

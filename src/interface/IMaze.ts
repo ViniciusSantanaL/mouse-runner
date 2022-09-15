@@ -1,8 +1,8 @@
-import { Cell } from './Cell';
+import { ICell } from './ICell';
 
 export interface IMaze {
     witdhCell: number;
     rows: number;
     colums: number;
-    grid: Array<Array<Cell>>;
+    grid: Array<Array<ICell>>;
 }
