@@ -1,21 +1,24 @@
-import { Maze } from 'model/Maze';
-import { KeyboardEvent, useEffect, useState } from 'react';
+import { Maze } from 'interface/Maze';
+import { MazeFactory } from 'model/MazeFactory';
+import { useState } from 'react';
+
 import './Maze.scss';
-export function Maze() {
-    const [maze, setMaze] = useState<Maze>();
-    // const [key, setKey] = useState('')
-    // useEffect(() => {
-    //     const keypress = (e: any) => {
-    //         console.log(e.key)
-    //         setKey(e.key)
-    //     }
-    //     window.addEventListener('keypress', keypress)
-    // }, [])
+function Maze(): JSX.Element {
+    const [maze] = useState<Maze>(MazeFactory.setup(800, 800, 80));
+
     return (
         <section className="container-maze">
             <div className="maze">
-                <div className="cell"></div>
+                {maze.grid.map((row, index) => (
+                    <div key={index}>
+                        {row.map((col, index) => (
+                            <span key={index}>{1}</span>
+                        ))}
+                    </div>
+                ))}
             </div>
         </section>
     );
 }
+
+export default Maze;
