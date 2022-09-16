@@ -5,4 +5,5 @@ export interface IMaze {
     rows: number;
     colums: number;
     grid: Array<Array<ICell>>;
+    current: ICell | undefined;
 }

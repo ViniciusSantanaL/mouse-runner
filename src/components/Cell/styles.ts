@@ -5,6 +5,7 @@ interface StyledCellProps {
     right: boolean;
     bottom: boolean;
     left: boolean;
+    visited: boolean;
 }
 
 export const StyledCell = styled.div<StyledCellProps>`
@@ -15,6 +16,12 @@ export const StyledCell = styled.div<StyledCellProps>`
     width: 70px;
     height: 70px;
     padding: 1px;
+
+    ${(props) =>
+        !!props.visited &&
+        css`
+            background-color: purple;
+        `}
 
     ${(props) =>
         !!props.top &&
