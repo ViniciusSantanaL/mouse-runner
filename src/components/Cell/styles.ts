@@ -1,6 +1,13 @@
 import styled, { css } from 'styled-components';
 
-export const StyledCell = styled.div`
+interface StyledCellProps {
+    top: boolean;
+    right: boolean;
+    bottom: boolean;
+    left: boolean;
+}
+
+export const StyledCell = styled.div<StyledCellProps>`
     display: flex;
     align-items: center;
     justify-content: center;

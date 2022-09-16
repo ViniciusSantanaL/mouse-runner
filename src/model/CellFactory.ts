@@ -6,7 +6,9 @@ export abstract class CellFactory {
     }
 
     static setup(): ICell {
-        const cell: ICell = { rowNum: 0, colNum: 10, walls: [false, true, false, true] };
+        const cell: ICell = { rowNum: 0, colNum: 10, walls: [true, true, true, true] };
+        const num = Math.floor(Math.random() * 3);
+        cell.walls[num] = false;
         return cell;
     }
 }
