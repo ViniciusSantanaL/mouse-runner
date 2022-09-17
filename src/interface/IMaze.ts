@@ -6,4 +6,5 @@ export interface IMaze {
     colums: number;
     grid: Array<Array<ICell>>;
     current: ICell;
+    stack: Array<ICell>;
 }

@@ -43,7 +43,9 @@ export abstract class CellFactory {
         if (x < 0 || j < 0 || x > colCount - 1 || j > rowCount - 1) return false;
         else return true;
     }
-
+    static sleep(ms: number) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
     static removeWalls(current: ICell, neighbor: ICell, grid: Array<Array<ICell>>): Array<Array<ICell>> {
         const x = current.rowNum - neighbor.rowNum;
         if (x === 1) {

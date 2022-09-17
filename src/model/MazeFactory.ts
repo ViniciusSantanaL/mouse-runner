@@ -4,7 +4,7 @@ import { CellFactory } from './CellFactory';
 
 export abstract class MazeFactory {
     static setup(height: number, width: number, widthCell: number): IMaze {
-        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: widthCell, current: CellFactory.setup(0, 0) };
+        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: widthCell, current: CellFactory.setup(0, 0), stack: [] };
         maze.rows = Math.floor(height / widthCell);
         maze.colums = Math.floor(width / widthCell);
 
