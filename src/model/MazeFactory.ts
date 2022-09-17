@@ -4,7 +4,7 @@ import { CellFactory } from './CellFactory';
 
 export abstract class MazeFactory {
     static setup(height: number, width: number, widthCell: number): IMaze {
-        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: widthCell, current: undefined };
+        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: widthCell, current: CellFactory.setup(0, 0) };
         maze.rows = Math.floor(height / widthCell);
         maze.colums = Math.floor(width / widthCell);
 
@@ -16,7 +16,10 @@ export abstract class MazeFactory {
             }
             maze.grid.push(row);
         }
-        maze.current = maze.grid[0][0];
+        maze.current = maze.grid[4][4];
+        maze.current.current = true;
+        maze.current.visited = true;
+
         return maze;
     }
 }

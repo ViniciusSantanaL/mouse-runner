@@ -6,6 +6,12 @@ interface StyledCellProps {
     bottom: boolean;
     left: boolean;
     visited: boolean;
+    current: boolean;
+}
+
+function handleColorCell(cell: StyledCellProps) {
+    if (cell.current === true) return 'red';
+    if (cell.visited === true) return 'purple';
 }
 
 export const StyledCell = styled.div<StyledCellProps>`
@@ -16,12 +22,7 @@ export const StyledCell = styled.div<StyledCellProps>`
     width: 70px;
     height: 70px;
     padding: 1px;
-
-    ${(props) =>
-        !!props.visited &&
-        css`
-            background-color: purple;
-        `}
+    background-color: ${(props) => handleColorCell(props)};
 
     ${(props) =>
         !!props.top &&

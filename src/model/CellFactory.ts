@@ -6,7 +6,7 @@ export abstract class CellFactory {
     }
 
     static setup(row: number, col: number): ICell {
-        const cell: ICell = { rowNum: row, colNum: col, walls: [true, true, true, true], visited: false };
+        const cell: ICell = { rowNum: row, colNum: col, walls: [true, true, true, true], visited: false, current: false };
 
         return cell;
     }
@@ -42,5 +42,30 @@ export abstract class CellFactory {
     static checkIndexIsValid(x: number, j: number, rowCount: number, colCount: number): boolean {
         if (x < 0 || j < 0 || x > colCount - 1 || j > rowCount - 1) return false;
         else return true;
+    }
+
+    static removeWalls(current: ICell, neighbor: ICell, grid: Array<Array<ICell>>): Array<Array<ICell>> {
+        const x = current.rowNum - neighbor.rowNum;
+        if (x === 1) {
+            current.walls[3] = false;
+            neighbor.walls[1] = false;
+        }
+        if (x === -1) {
+            current.walls[1] = false;
+            neighbor.walls[3] = false;
+        }
+        const y = current.colNum - neighbor.colNum;
+        if (y === 1) {
+            current.walls[0] = false;
+            neighbor.walls[2] = false;
+        }
+        if (y === -1) {
+            current.walls[2] = false;
+            neighbor.walls[0] = false;
+        }
+        grid[current.rowNum][current.colNum] = current;
+        grid[neighbor.rowNum][neighbor.colNum] = neighbor;
+
+        return grid;
     }
 }
