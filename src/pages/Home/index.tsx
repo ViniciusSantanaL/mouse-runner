@@ -1,17 +1,15 @@
 import Button from 'components/Button';
-import Maze from 'components/Maze';
-import { useRoutes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MouseAnimation from './components/MouseAnimation';
-
 import { ButtonGroup, Container } from './styles';
 
 export default function Home() {
-    const router = useRoutes;
+    const navigate = useNavigate();
     return (
         <Container>
             <MouseAnimation />
             <ButtonGroup>
-                <Button>START</Button>
+                <Button onClick={() => navigate('/maze')}>START</Button>
                 <Button>TUTORIAL</Button>
                 <Button>REFERENCE</Button>
             </ButtonGroup>

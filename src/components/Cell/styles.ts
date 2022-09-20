@@ -11,7 +11,7 @@ interface StyledCellProps {
 
 function handleColorCell(cell: StyledCellProps) {
     if (cell.current === true) return 'red';
-    if (cell.visited === true) return 'purple';
+    if (cell.visited === true) return '#0b0b33';
 }
 
 export const StyledCell = styled.div<StyledCellProps>`

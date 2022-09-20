@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rampart+One&display=swap');
-.container-title {
+import styled from 'styled-components';
+
+export const Container = styled.div`
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rampart+One&display=swap');
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: center;
-}
+`;
 
-.title {
+export const StyledTitle = styled.div`
     margin: 1rem;
     display: flex;
     justify-content: center;
@@ -29,4 +31,4 @@
     img {
         width: 140px;
     }
-}
+`;

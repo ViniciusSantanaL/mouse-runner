@@ -1,4 +1,4 @@
-import Maze from './components/Maze';
+import { Maze } from './components/Maze';
 import { Title } from './components/Title';
 import './index.css';
 

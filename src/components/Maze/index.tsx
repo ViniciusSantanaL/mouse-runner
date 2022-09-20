@@ -4,9 +4,9 @@ import { IMaze } from 'interface/IMaze';
 import { CellService } from 'service/CellService';
 import { MazeService } from 'service/MazeService';
 import { useEffect, useState } from 'react';
+import { Container, StyledMaze } from './styles';
 
-import './Maze.scss';
-function Maze() {
+export default function Maze() {
     const [maze, setMaze] = useState<IMaze | null>(null);
 
     useEffect(() => {
@@ -40,21 +40,19 @@ function Maze() {
         }
     }, [maze]);
     return (
-        <section className="container-maze">
-            <div className="maze">
+        <Container>
+            <StyledMaze>
                 {maze &&
                     maze.grid.map((row, index) => (
                         <div key={index}>
                             {row.map((cell, index) => (
                                 <Cell key={index} cell={cell}>
-                                    {cell.rowNum + cell.colNum * maze.colums}
+                                    {cell.rowNum + cell.colNum * maze.colums + 1}
                                 </Cell>
                             ))}
                         </div>
                     ))}
-            </div>
-        </section>
+            </StyledMaze>
+        </Container>
     );
 }
-
-export default Maze;

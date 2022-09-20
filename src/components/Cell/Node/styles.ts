@@ -4,10 +4,10 @@ export const StyledNode = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: #c4640b;
     width: 40px;
     height: 40px;
-    border: 1px blue solid;
+    border: 1px white solid;
     border-radius: 40px;
 `;
 

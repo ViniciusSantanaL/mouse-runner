@@ -1,11 +1,12 @@
-import './Mouse.scss'
+import { Container, StyledTitle } from './styles';
+
 export function Title() {
     return (
-        <div className="container-title">
-            <div className="title">
+        <Container>
+            <StyledTitle>
                 <h1>Mouse Runner</h1>
-                <img src={require('./mouse.png')} />
-            </div>
-        </div>
-    )
+                <img src={require('assets/Home/mouse-title.png')} />
+            </StyledTitle>
+        </Container>
+    );
 }
