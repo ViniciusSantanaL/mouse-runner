@@ -1,8 +1,8 @@
 import Cell from 'components/Cell';
 import { ICell } from 'interface/ICell';
 import { IMaze } from 'interface/IMaze';
-import { CellFactory } from 'model/CellFactory';
-import { MazeFactory } from 'model/MazeFactory';
+import { CellService } from 'service/CellService';
+import { MazeService } from 'service/MazeService';
 import { useEffect, useState } from 'react';
 
 import './Maze.scss';
@@ -10,20 +10,20 @@ function Maze() {
     const [maze, setMaze] = useState<IMaze | null>(null);
 
     useEffect(() => {
-        setMaze(MazeFactory.setup(700, 700, 70));
+        setMaze(MazeService.setup(700, 700, 70));
     }, []);
 
     useEffect(() => {
         if (maze) {
             let currentUpdate: ICell | undefined = maze.current;
             const stackUpdate = maze.stack;
-            const next = CellFactory.checkNeighbors(currentUpdate, maze.grid, maze.rows, maze.colums);
+            const next = CellService.checkNeighbors(currentUpdate, maze.grid, maze.rows, maze.colums);
             let gridUpdate: Array<Array<ICell>> = maze.grid;
             if (next) {
                 next.visited = true;
                 next.current = true;
                 currentUpdate.current = false;
-                gridUpdate = CellFactory.removeWalls(currentUpdate, next, maze.grid);
+                gridUpdate = CellService.removeWalls(currentUpdate, next, maze.grid);
 
                 stackUpdate.push(currentUpdate);
 

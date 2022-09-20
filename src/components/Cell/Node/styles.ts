@@ -5,7 +5,7 @@ export const StyledNode = styled.span`
     justify-content: center;
     align-items: center;
     background-color: blue;
-    width: 35px;
+    width: 40px;
     height: 40px;
     border: 1px blue solid;
     border-radius: 40px;
@@ -16,6 +16,7 @@ export const StyledNodeLine = styled.span`
     width: 32px;
     background-color: white;
     display: inline-block;
+    display: none;
 `;
 
 export const StyledNodeArrow = styled.span`

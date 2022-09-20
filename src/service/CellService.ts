@@ -1,6 +1,6 @@
 import { ICell } from 'interface/ICell';
 
-export abstract class CellFactory {
+export abstract class CellService {
     show(): number {
         return 1;
     }
