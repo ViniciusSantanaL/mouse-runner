@@ -3,7 +3,7 @@ import { IMaze } from 'interface/IMaze';
 import { CellService } from './CellService';
 
 export abstract class MazeService {
-    static setup(height: number, width: number, widthCell: number): IMaze {
+    static setup(height?: number, width: number, widthCell: number): IMaze {
         const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: widthCell, current: CellService.setup(0, 0), stack: [] };
         maze.rows = Math.floor(height / widthCell);
         maze.colums = Math.floor(width / widthCell);
@@ -22,4 +22,5 @@ export abstract class MazeService {
 
         return maze;
     }
+    private startValuesMaze(width: number, height: number) {}
 }

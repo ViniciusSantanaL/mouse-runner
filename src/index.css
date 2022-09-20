@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rampart+One&display=swap');
 
 html,
 body,
@@ -130,4 +131,8 @@ table {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
 }

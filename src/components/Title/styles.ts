@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rampart+One&display=swap');
     width: 100%;
     height: 10%;
     display: flex;
@@ -24,7 +23,6 @@ export const StyledTitle = styled.div`
         font-size: 80px;
         letter-spacing: 10px;
         padding: 5px;
-        font-family: 'Bebas Neue', cursive;
         color: #fff;
         text-shadow: 0px 2px 2px blue;
     }

@@ -10,7 +10,7 @@ export default function Home() {
             <MouseAnimation />
             <ButtonGroup>
                 <Button onClick={() => navigate('/maze')}>START</Button>
-                <Button>TUTORIAL</Button>
+                <Button onClick={() => navigate('/tutorial')}>TUTORIAL</Button>
                 <Button>REFERENCE</Button>
             </ButtonGroup>
         </Container>
