@@ -1,11 +1,19 @@
 import Cell from 'components/Cell';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MazeService } from 'service/MazeService';
 import { Container } from '../styled';
 import { StyledMaze } from './styles';
 
 export default function Grid() {
-    const [maze, setMaze] = useState(MazeService.setup(700, 700, 70));
+    const [maze, setMaze] = useState(MazeService.setup(700));
+
+    const [width, setWidth] = useState(700);
+    const [row, setRow] = useState(10);
+    const [columns, setColumns] = useState(10);
+
+    useEffect(() => {
+        setMaze(MazeService.updateMaze(maze, row, columns));
+    }, [width]);
 
     return (
         <Container>
@@ -20,6 +28,7 @@ export default function Grid() {
                     </div>
                 ))}
             </StyledMaze>
+            <h1>Primeiro Passo</h1>
         </Container>
     );
 }

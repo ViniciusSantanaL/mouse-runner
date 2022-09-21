@@ -10,7 +10,7 @@ export default function Maze() {
     const [maze, setMaze] = useState<IMaze | null>(null);
 
     useEffect(() => {
-        setMaze(MazeService.setup(700, 700, 70));
+        setMaze(MazeService.setup(700));
     }, []);
 
     useEffect(() => {

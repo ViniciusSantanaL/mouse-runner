@@ -3,10 +3,13 @@ import { IMaze } from 'interface/IMaze';
 import { CellService } from './CellService';
 
 export abstract class MazeService {
-    static setup(height?: number, width: number, widthCell: number): IMaze {
-        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: widthCell, current: CellService.setup(0, 0), stack: [] };
-        maze.rows = Math.floor(height / widthCell);
-        maze.colums = Math.floor(width / widthCell);
+    static setup(width: number): IMaze {
+        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: 0, current: CellService.setup(0, 0), stack: [], width: 0 };
+
+        maze.witdhCell = width / 10;
+        maze.rows = Math.floor(width / maze.witdhCell);
+        maze.colums = Math.floor(width / maze.witdhCell);
+        maze.witdhCell = width / 10;
 
         for (let r = 0; r < maze.rows; r++) {
             const row: Array<ICell> = [];
@@ -22,5 +25,23 @@ export abstract class MazeService {
 
         return maze;
     }
-    private startValuesMaze(width: number, height: number) {}
+    static updateMaze(maze: IMaze, width?: number, rows?: number, columns?: number): IMaze {
+        if (!!width && !!rows && !!columns) {
+            maze.colums = columns;
+            maze.rows = rows;
+            maze.width = width;
+            maze.witdhCell = Math.floor(width / columns);
+            return maze;
+        }
+
+        if (!!width && rows == undefined && columns == undefined) {
+            maze.witdhCell = width / 10;
+            maze.width = width;
+            maze.rows = Math.floor(width / maze.witdhCell);
+            maze.colums = Math.floor(width / maze.witdhCell);
+
+            return maze;
+        }
+        return maze;
+    }
 }
