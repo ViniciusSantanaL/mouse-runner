@@ -7,14 +7,6 @@ import { StyledMaze } from './styles';
 export default function Grid() {
     const [maze, setMaze] = useState(MazeService.setup(700));
 
-    const [width, setWidth] = useState(700);
-    const [row, setRow] = useState(10);
-    const [columns, setColumns] = useState(10);
-
-    useEffect(() => {
-        setMaze(MazeService.updateMaze(maze, row, columns));
-    }, [width]);
-
     return (
         <Container>
             <StyledMaze>
@@ -28,7 +20,6 @@ export default function Grid() {
                     </div>
                 ))}
             </StyledMaze>
-            <h1>Primeiro Passo</h1>
         </Container>
     );
 }

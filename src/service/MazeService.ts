@@ -42,6 +42,13 @@ export abstract class MazeService {
 
             return maze;
         }
+        if (!!rows && !!columns && width == undefined) {
+            maze.width = rows * 100 > 1000 ? 1000 : rows * 1000;
+            maze.colums = columns;
+            maze.rows = rows;
+
+            return maze;
+        }
         return maze;
     }
 }
