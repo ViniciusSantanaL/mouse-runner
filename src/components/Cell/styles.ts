@@ -7,6 +7,7 @@ interface StyledCellProps {
     left: boolean;
     visited: boolean;
     current: boolean;
+    widthCell: number;
 }
 
 function handleColorCell(cell: StyledCellProps) {
@@ -19,8 +20,8 @@ export const StyledCell = styled.div<StyledCellProps>`
     align-items: center;
     justify-content: center;
     color: white;
-    width: 70px;
-    height: 70px;
+    width: ${(props) => `${props.widthCell}px`};
+    height: ${(props) => `${props.widthCell}px`};
     padding: 1px;
     background-color: ${(props) => handleColorCell(props)};
 

@@ -10,7 +10,7 @@ export default function Maze() {
     const [maze, setMaze] = useState<IMaze | null>(null);
 
     useEffect(() => {
-        setMaze(MazeService.setup(700));
+        setMaze(MazeService.setup(800, 20, 20));
     }, []);
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function Maze() {
                     maze.grid.map((row, index) => (
                         <div key={index}>
                             {row.map((cell, index) => (
-                                <Cell key={index} cell={cell}>
+                                <Cell key={index} cell={cell} widthCell={maze.witdhCell}>
                                     {cell.rowNum + cell.colNum * maze.colums + 1}
                                 </Cell>
                             ))}

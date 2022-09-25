@@ -3,13 +3,12 @@ import { IMaze } from 'interface/IMaze';
 import { CellService } from './CellService';
 
 export abstract class MazeService {
-    static setup(width: number): IMaze {
+    static setup(width: number, rows: number, columns: number): IMaze {
         const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: 0, current: CellService.setup(0, 0), stack: [], width: 0 };
-
-        maze.witdhCell = width / 10;
-        maze.rows = Math.floor(width / maze.witdhCell);
-        maze.colums = Math.floor(width / maze.witdhCell);
-        maze.witdhCell = width / 10;
+        maze.colums = columns;
+        maze.rows = rows;
+        maze.witdhCell = Math.floor(width / columns);
+        maze.width = Math.floor(Number(width) + Number(columns) * 2);
 
         for (let r = 0; r < maze.rows; r++) {
             const row: Array<ICell> = [];
@@ -25,29 +24,19 @@ export abstract class MazeService {
 
         return maze;
     }
-    static updateMaze(maze: IMaze, width?: number, rows?: number, columns?: number): IMaze {
-        if (!!width && !!rows && !!columns) {
-            maze.colums = columns;
-            maze.rows = rows;
-            maze.width = width;
-            maze.witdhCell = Math.floor(width / columns);
-            return maze;
-        }
-
-        if (!!width && rows == undefined && columns == undefined) {
-            maze.witdhCell = width / 10;
-            maze.width = width;
-            maze.rows = Math.floor(width / maze.witdhCell);
-            maze.colums = Math.floor(width / maze.witdhCell);
-
-            return maze;
-        }
-        if (!!rows && !!columns && width == undefined) {
-            maze.width = rows * 100 > 1000 ? 1000 : rows * 1000;
-            maze.colums = columns;
-            maze.rows = rows;
-
-            return maze;
+    static updateMaze(maze: IMaze, width: number, rows: number, columns: number): IMaze {
+        maze.colums = columns;
+        maze.rows = rows;
+        maze.width = Math.floor(Number(width) + Number(columns) * 2);
+        maze.witdhCell = Math.floor(width / columns);
+        maze.grid = [];
+        for (let r = 0; r < maze.rows; r++) {
+            const row: Array<ICell> = [];
+            for (let c = 0; c < maze.colums; c++) {
+                const cell = CellService.setup(r, c);
+                row.push(cell);
+            }
+            maze.grid.push(row);
         }
         return maze;
     }

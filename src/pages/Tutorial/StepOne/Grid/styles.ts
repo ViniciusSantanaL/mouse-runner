@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+export const ContainerGrid = styled.section``;
+
 export const animationMaze = keyframes`
     0% { opacity: 0; }
     20% { opacity: 0.2; }
@@ -10,12 +12,12 @@ export const animationMaze = keyframes`
 
 `;
 
-export const StyledMaze = styled.div`
+export const StyledMaze = styled.div<{ width: number }>`
     background-color: black;
     animation-name: ${animationMaze};
     animation-duration: 1s;
-    width: 720px;
-    height: 720px;
+    width: ${(props) => `${props.width}px`};
+    height: ${(props) => `${props.width}px`};
     border: 5px solid #ffffff;
     display: flex;
     flex-direction: column;
@@ -24,17 +26,4 @@ export const StyledMaze = styled.div`
         color: white;
         font-size: 5px;
     }
-`;
-
-export const Cell = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    width: 10px;
-    height: 10px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
 `;

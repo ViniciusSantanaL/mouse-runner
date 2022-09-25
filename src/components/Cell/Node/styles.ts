@@ -5,10 +5,10 @@ export const StyledNode = styled.span`
     justify-content: center;
     align-items: center;
     background-color: #c4640b;
-    width: 40px;
-    height: 40px;
+    width: 50%;
+    height: 50%;
     border: 1px white solid;
-    border-radius: 40px;
+    border-radius: 100%;
 `;
 
 export const StyledNodeLine = styled.span`
