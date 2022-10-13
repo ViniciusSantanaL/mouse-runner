@@ -6,10 +6,15 @@ interface CellProps {
     cell: ICell;
     widthCell: number;
     children?: React.ReactNode;
+    setStatus?: (positionX: number, positionY: number) => void;
+    isLoading?: boolean;
 }
-export function Cell({ cell, widthCell, children }: CellProps) {
+export function InitialCell({ cell, widthCell, children, setStatus, isLoading }: CellProps) {
     return (
         <StyledCell
+            onClick={() => {
+                if (!isLoading && setStatus) setStatus(cell.rowNum, cell.colNum);
+            }}
             initial={cell.initial}
             final={cell.final}
             top={cell.walls[0]}
@@ -20,7 +25,7 @@ export function Cell({ cell, widthCell, children }: CellProps) {
             current={cell.current}
             widthCell={widthCell}
         >
-            {cell.current && <img src={require('assets/Home/mouse.png')} />}
+            <Node>{children}</Node>
         </StyledCell>
     );
 }

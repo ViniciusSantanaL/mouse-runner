@@ -4,4 +4,6 @@ export interface ICell {
     walls: Array<boolean>;
     visited: boolean;
     current: boolean;
+    initial: boolean;
+    final: boolean;
 }

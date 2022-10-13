@@ -1,4 +1,5 @@
 import Button from 'components/Button';
+import { Title } from 'components/Title';
 import { useNavigate } from 'react-router-dom';
 import MouseAnimation from './components/MouseAnimation';
 import { ButtonGroup, Container } from './styles';
@@ -6,13 +7,16 @@ import { ButtonGroup, Container } from './styles';
 export default function Home() {
     const navigate = useNavigate();
     return (
-        <Container>
-            <MouseAnimation />
-            <ButtonGroup>
-                <Button onClick={() => navigate('/maze')}>START</Button>
-                <Button onClick={() => navigate('/tutorial')}>TUTORIAL</Button>
-                <Button>REFERENCE</Button>
-            </ButtonGroup>
-        </Container>
+        <>
+            <Title />
+            <Container>
+                <MouseAnimation />
+                <ButtonGroup>
+                    <Button onClick={() => navigate('/maze')}>START</Button>
+                    <Button onClick={() => navigate('/tutorial')}>TUTORIAL</Button>
+                    <Button>REFERENCE</Button>
+                </ButtonGroup>
+            </Container>
+        </>
     );
 }

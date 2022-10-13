@@ -1,4 +1,3 @@
-import Maze from 'components/Maze';
 import StepOne from './StepOne';
 import { Container } from './styles';
 

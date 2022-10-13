@@ -13,15 +13,10 @@ interface StyledCellProps {
 }
 
 function handleColorCell(cell: StyledCellProps) {
-    if (cell.initial) {
-        return 'green';
-    } else if (cell.final) {
-        return 'red';
-    } else if (cell.visited) {
-        return 'orange';
-    } else {
-        return '#0b0b33';
-    }
+    if (cell.initial === true) return 'green';
+    if (cell.current === true) return 'yellow';
+    if (cell.final === true) return 'red';
+    if (cell.visited === true) return '#0b0b33';
 }
 
 export const StyledCell = styled.div<StyledCellProps>`
@@ -63,9 +58,4 @@ export const StyledCell = styled.div<StyledCellProps>`
             border-left: 1px solid white;
             padding-left: 0;
         `}
-
-        img {
-        width: 30px;
-        height: 30px;
-    }
 `;

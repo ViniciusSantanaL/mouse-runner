@@ -8,4 +8,6 @@ export interface IMaze {
     grid: Array<Array<ICell>>;
     current: ICell;
     stack: Array<ICell>;
+    initial: ICell | undefined;
+    final: ICell | undefined;
 }

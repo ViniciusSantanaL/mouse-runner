@@ -18,6 +18,7 @@ export const StyledButton = styled.div<StyledInputProps>`
         border-radius: 20px;
         border: none;
         font-weight: bold;
+        cursor: pointer;
 
         font-family: 'Poppins', sans-serif;
         transition: all 0.3s ease 0s;
@@ -47,6 +48,10 @@ export const StyledButton = styled.div<StyledInputProps>`
                 color: #4682b4;
                 box-shadow: 0px 2px 5px #fff;
             `}
+    }
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
     }
     button:hover {
         background-color: #fff;
