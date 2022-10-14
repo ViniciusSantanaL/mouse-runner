@@ -9,8 +9,8 @@ interface MazeProps {
 }
 export function Maze({ maze, setMaze }: MazeProps) {
     return (
-        <Container>
-            <StyledMaze>
+        <Container width={maze?.width ? maze?.width : 600} height={maze?.width ? maze?.width : 600}>
+            <StyledMaze width={maze?.width ? maze?.width : 600} height={maze?.width ? maze?.width : 600}>
                 {maze &&
                     maze.grid.map((row, index) => (
                         <div key={index}>

@@ -1,8 +1,13 @@
 import styled, { keyframes } from 'styled-components';
 
-export const Container = styled.section`
-    width: 850px;
-    height: 850px;
+type ContainerProps = {
+    width: number;
+    height: number;
+};
+
+export const Container = styled.section<ContainerProps>`
+    width: ${(props) => `${props.width + 10}px`};
+    height: ${(props) => `${props.width + 10}px`};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,13 +22,16 @@ export const animationMaze = keyframes`
     100% { opacity: 1; }
 
 `;
-
-export const StyledMaze = styled.div`
+type StyledMazeProps = {
+    width: number;
+    height: number;
+};
+export const StyledMaze = styled.div<StyledMazeProps>`
     background-color: black;
     animation-name: ${animationMaze};
     animation-duration: 1s;
-    width: 840px;
-    height: 840px;
+    width: ${(props) => `${props.width}px`};
+    height: ${(props) => `${props.height}px`};
     border: 5px solid #ffffff;
     display: flex;
     flex-direction: column;
