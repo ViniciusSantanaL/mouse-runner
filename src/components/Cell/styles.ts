@@ -5,7 +5,7 @@ interface StyledCellProps {
     right: boolean;
     bottom: boolean;
     left: boolean;
-    visited: boolean;
+    visitedMouse: boolean;
     current: boolean;
     widthCell: number;
     initial: boolean;
@@ -17,7 +17,7 @@ function handleColorCell(cell: StyledCellProps) {
         return 'green';
     } else if (cell.final) {
         return 'red';
-    } else if (cell.visited) {
+    } else if (cell.visitedMouse) {
         return 'orange';
     } else {
         return '#0b0b33';

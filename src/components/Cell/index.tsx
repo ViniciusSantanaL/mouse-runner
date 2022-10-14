@@ -16,7 +16,7 @@ export function Cell({ cell, widthCell, children }: CellProps) {
             right={cell.walls[1]}
             bottom={cell.walls[2]}
             left={cell.walls[3]}
-            visited={cell.visited}
+            visitedMouse={cell.visitedMouse}
             current={cell.current}
             widthCell={widthCell}
         >

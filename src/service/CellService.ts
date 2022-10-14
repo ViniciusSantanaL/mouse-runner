@@ -6,7 +6,7 @@ export abstract class CellService {
     }
 
     static setup(row: number, col: number): ICell {
-        const cell: ICell = { rowNum: row, colNum: col, walls: [true, true, true, true], visited: false, current: false, initial: false, final: false };
+        const cell: ICell = { rowNum: row, colNum: col, walls: [true, true, true, true], visited: false, current: false, initial: false, final: false, visitedMouse: false };
 
         return cell;
     }

@@ -1,5 +1,6 @@
 import { Cell } from 'components/Cell';
 import { IMaze } from 'interface/IMaze';
+import { useEffect } from 'react';
 
 import { Container, StyledMaze } from './styles';
 
@@ -9,8 +10,8 @@ interface MazeProps {
 }
 export function Maze({ maze, setMaze }: MazeProps) {
     return (
-        <Container width={maze?.width ? maze?.width : 600} height={maze?.width ? maze?.width : 600}>
-            <StyledMaze width={maze?.width ? maze?.width : 600} height={maze?.width ? maze?.width : 600}>
+        <Container width={maze?.width ? maze?.width : 600}>
+            <StyledMaze width={maze?.width ? maze?.width : 600}>
                 {maze &&
                     maze.grid.map((row, index) => (
                         <div key={index}>

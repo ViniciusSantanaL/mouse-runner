@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 
 type ContainerProps = {
     width: number;
-    height: number;
 };
 
 export const Container = styled.section<ContainerProps>`
@@ -24,14 +23,13 @@ export const animationMaze = keyframes`
 `;
 type StyledMazeProps = {
     width: number;
-    height: number;
 };
 export const StyledMaze = styled.div<StyledMazeProps>`
     background-color: black;
     animation-name: ${animationMaze};
     animation-duration: 1s;
     width: ${(props) => `${props.width}px`};
-    height: ${(props) => `${props.height}px`};
+    height: ${(props) => `${props.width}px`};
     border: 5px solid #ffffff;
     display: flex;
     flex-direction: column;

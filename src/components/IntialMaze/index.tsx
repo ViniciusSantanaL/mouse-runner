@@ -15,7 +15,7 @@ interface MazeProps {
 }
 export function InitialMaze({ maze, setMaze }: MazeProps) {
     const { isLoading, setIsLoading } = useLoading();
-    const { width, height } = useWindowDimensions();
+    const { height } = useWindowDimensions();
     const [positionInitialCell, setPositionInitialCell] = useState<number[]>([]);
     const [positionFinalCell, setPositionFinalCell] = useState<number[]>([]);
 
@@ -57,7 +57,6 @@ export function InitialMaze({ maze, setMaze }: MazeProps) {
     useEffect(() => {
         setMessage('Waiting the Maze to be a builder');
         if (height < 700) {
-            console.log('oi deu true');
             setMaze(MazeService.setup(560, 20, 20));
         } else {
             setMaze(MazeService.setup(800, 20, 20));
@@ -96,8 +95,8 @@ export function InitialMaze({ maze, setMaze }: MazeProps) {
     }, [maze]);
 
     return (
-        <Container width={maze?.width ? maze?.width : 600} height={maze?.width ? maze?.width : 600}>
-            <StyledMaze width={maze?.width ? maze?.width : 600} height={maze?.width ? maze?.width : 600}>
+        <Container width={maze?.width ? maze?.width : 600}>
+            <StyledMaze width={maze?.width ? maze?.width : 600}>
                 {maze &&
                     maze.grid.map((row, index) => (
                         <div key={index}>
