@@ -1,7 +1,7 @@
 import { Cell } from 'components/Cell';
 import { IMaze } from 'interface/IMaze';
 import { useEffect } from 'react';
-import { GraphService } from 'service/GraphService';
+import { GraphSetupService } from 'service/GraphSetupService';
 
 import { Container, StyledMaze } from './styles';
 
@@ -14,7 +14,7 @@ export function Maze({ maze, setMaze }: MazeProps) {
         if (maze) {
             if (maze.initial && maze.final) {
                 console.log('executeii');
-                GraphService.doGraph(maze.grid, maze.initial, maze.final);
+                GraphSetupService.doGraph(maze.grid, maze.initial, maze.final);
             }
         }
     }, []);
