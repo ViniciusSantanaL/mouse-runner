@@ -1,15 +1,8 @@
-import { ICell } from './ICell';
-import { INodeCell, INodeNumber } from './INode';
+import { INodeCell } from './INode';
 
-export interface IGraphCells {
+export interface IGraph {
     listNode: Map<number, INodeCell>;
     amountNode: number;
-    initial: ICell;
-    final: ICell;
-}
-export interface IGraphNumber {
-    listNode: Map<number, INodeNumber>;
-    amountNode: number;
-    initial: number;
-    final: number;
+    initial: INodeCell;
+    final: INodeCell;
 }

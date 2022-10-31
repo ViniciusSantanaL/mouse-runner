@@ -1,6 +1,7 @@
 import { Cell } from 'components/Cell';
+import { ICell } from 'interface/ICell';
 import { IMaze } from 'interface/IMaze';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { GraphSetupService } from 'service/GraphSetupService';
 
 import { Container, StyledMaze } from './styles';
@@ -10,14 +11,16 @@ interface MazeProps {
     setMaze: React.Dispatch<React.SetStateAction<IMaze | null>>;
 }
 export function Maze({ maze, setMaze }: MazeProps) {
+    const [gridAStar, setGridAStart] = useState<ICell[][]>();
+
     useEffect(() => {
         if (maze) {
             if (maze.initial && maze.final) {
-                console.log('executeii');
                 GraphSetupService.doGraph(maze.grid, maze.initial, maze.final);
             }
         }
     }, []);
+    useEffect(() => {}, []);
     return (
         <Container width={maze?.width ? maze?.width : 600}>
             <StyledMaze width={maze?.width ? maze?.width : 600}>

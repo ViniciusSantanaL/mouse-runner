@@ -5,8 +5,18 @@ export abstract class CellService {
         return 1;
     }
 
-    static setup(row: number, col: number): ICell {
-        const cell: ICell = { rowNum: row, colNum: col, walls: [true, true, true, true], visited: false, current: false, initial: false, final: false, visitedMouse: false };
+    static setup(row: number, col: number, colAmount: number): ICell {
+        const cell: ICell = {
+            rowNum: row,
+            colNum: col,
+            walls: [true, true, true, true],
+            visited: false,
+            current: false,
+            initial: false,
+            final: false,
+            visitedMouse: false,
+            numberCell: row + col * colAmount + 1
+        };
 
         return cell;
     }

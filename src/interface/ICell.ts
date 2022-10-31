@@ -7,4 +7,5 @@ export interface ICell {
     current: boolean;
     initial: boolean;
     final: boolean;
+    numberCell: number;
 }

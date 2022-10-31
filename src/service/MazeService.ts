@@ -4,7 +4,7 @@ import { CellService } from './CellService';
 
 export abstract class MazeService {
     static setup(width: number, rows: number, columns: number): IMaze {
-        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: 0, current: CellService.setup(0, 0), stack: [], width: 0, initial: undefined, final: undefined };
+        const maze: IMaze = { colums: 0, rows: 0, grid: [], witdhCell: 0, current: {} as ICell, stack: [], width: 0, initial: undefined, final: undefined };
         maze.colums = columns;
         maze.rows = rows;
         maze.witdhCell = Math.floor(width / columns);
@@ -13,7 +13,7 @@ export abstract class MazeService {
         for (let r = 0; r < maze.rows; r++) {
             const row: Array<ICell> = [];
             for (let c = 0; c < maze.colums; c++) {
-                const cell = CellService.setup(r, c);
+                const cell = CellService.setup(r, c, maze.colums);
                 row.push(cell);
             }
             maze.grid.push(row);
@@ -33,7 +33,7 @@ export abstract class MazeService {
         for (let r = 0; r < maze.rows; r++) {
             const row: Array<ICell> = [];
             for (let c = 0; c < maze.colums; c++) {
-                const cell = CellService.setup(r, c);
+                const cell = CellService.setup(r, c, maze.colums);
                 row.push(cell);
             }
             maze.grid.push(row);

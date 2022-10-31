@@ -6,6 +6,9 @@ export interface INodeCell {
     adjListAmount: number;
     distance: number;
     cell: ICell;
+    f: number;
+    g: number;
+    h: number;
 }
 export interface INodeNumber {
     adjacencyList: Array<number>;
@@ -13,4 +16,7 @@ export interface INodeNumber {
     adjListAmount: number;
     distance: number;
     num: number;
+    f: number;
+    g: number;
+    h: number;
 }
