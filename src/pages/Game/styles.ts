@@ -11,4 +11,11 @@ export const Container = styled.main`
         display: flex;
         justify-content: center;
     }
+
+    .container-message {
+        button {
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+    }
 `;

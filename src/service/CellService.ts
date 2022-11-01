@@ -15,7 +15,8 @@ export abstract class CellService {
             initial: false,
             final: false,
             visitedMouse: false,
-            numberCell: row + col * colAmount + 1
+            numberCell: row + col * colAmount + 1,
+            bestPath: false
         };
 
         return cell;

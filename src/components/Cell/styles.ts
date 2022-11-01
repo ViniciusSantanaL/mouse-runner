@@ -33,7 +33,6 @@ export const StyledCell = styled.div<StyledCellProps>`
     height: ${(props) => `${props.widthCell}px`};
     padding: 1px;
     background-color: ${(props) => handleColorCell(props)};
-
     ${(props) =>
         !!props.top &&
         css`
@@ -67,5 +66,9 @@ export const StyledCell = styled.div<StyledCellProps>`
         img {
         width: 30px;
         height: 30px;
+        @media (max-width: 1300px) {
+            width: 20px;
+            height: 20px;
+        }
     }
 `;

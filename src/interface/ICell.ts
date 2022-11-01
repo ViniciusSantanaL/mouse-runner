@@ -8,4 +8,5 @@ export interface ICell {
     initial: boolean;
     final: boolean;
     numberCell: number;
+    bestPath: boolean;
 }

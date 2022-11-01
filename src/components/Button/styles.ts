@@ -32,7 +32,7 @@ export const StyledButton = styled.div<StyledInputProps>`
         ${(props) =>
             props.color === 'yellow' &&
             css`
-                background-color: #e6e600;
+                background-color: #ffd700;
                 box-shadow: 0px 2px 5px #e6e600;
             `}
             ${(props) =>

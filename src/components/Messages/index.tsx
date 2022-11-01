@@ -1,8 +1,10 @@
 import { useMessage } from 'hooks/useMessage';
 import { Container } from './styles';
 
-export function Messages() {
-    const { message } = useMessage();
+interface MessageProps {
+    message: string;
+}
+export function Messages({ message }: MessageProps) {
     return (
         <Container>
             <p>{message}</p>

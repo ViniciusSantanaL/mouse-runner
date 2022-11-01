@@ -21,6 +21,7 @@ export function Cell({ cell, widthCell, children }: CellProps) {
             widthCell={widthCell}
         >
             {cell.current && <img src={require('assets/Home/mouse.png')} />}
+            {children && <img src={require('assets/Home/cheese.png')} />}
         </StyledCell>
     );
 }

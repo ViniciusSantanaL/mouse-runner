@@ -21,6 +21,8 @@ export abstract class GraphSetupService {
         }
         graph.initial = graph.listNode.get(initialCell.numberCell) as INodeCell;
         graph.final = graph.listNode.get(finalCell.numberCell) as INodeCell;
+
+        return graph;
     }
     static AddNodesInGraphsAndMakeAdjList(graph: IGraph, cell: ICell, grid: ICell[][]) {
         const listNeighbors = this.checkNeighbors(cell, grid);
@@ -28,13 +30,16 @@ export abstract class GraphSetupService {
         if (!this.checkIfNodeExistInGraph(graph, cell.numberCell)) {
             this.addVertices(graph, cell);
         }
+        const node = graph.listNode.get(cell.numberCell) as INodeCell;
 
         for (let i = 0; i < listNeighbors.length; i++) {
-            const neightbor = listNeighbors[i];
-            if (!this.checkIfNodeExistInGraph(graph, neightbor.numberCell)) {
+            const neighborCell = listNeighbors[i];
+            if (!this.checkIfNodeExistInGraph(graph, neighborCell.numberCell)) {
                 this.addVertices(graph, listNeighbors[i]);
             }
-            this.addNodeInAdjacencyList(cell, neightbor, graph);
+            const neighborNode = graph.listNode.get(neighborCell.numberCell) as INodeCell;
+
+            this.addNodeInAdjacencyList(node, neighborNode, graph);
         }
     }
     static checkIfNodeExistInGraph(graph: IGraph, numberCell: number) {
@@ -44,12 +49,8 @@ export abstract class GraphSetupService {
             return false;
         }
     }
-    static addNodeInAdjacencyList(cell: ICell, neightbor: ICell, graph: IGraph) {
-        (graph.listNode.get(neightbor.numberCell) as INodeCell).adjacencyList.push(cell);
-        (graph.listNode.get(cell.numberCell) as INodeCell).adjacencyList.push(neightbor);
-
-        (graph.listNode.get(cell.numberCell) as INodeCell).adjListAmount++;
-        (graph.listNode.get(neightbor.numberCell) as INodeCell).adjListAmount++;
+    static addNodeInAdjacencyList(node: INodeCell, neightbor: INodeCell, graph: IGraph) {
+        (graph.listNode.get(node.numNode) as INodeCell).adjacencyList.push(neightbor);
     }
 
     static checkNeighbors(cell: ICell, grid: ICell[][]): Array<ICell> {
@@ -69,8 +70,8 @@ export abstract class GraphSetupService {
         return listNeighbors;
     }
     static addVertices(graph: IGraph, cell: ICell) {
-        const nodeCell: INodeCell = { adjacencyList: [], adjListAmount: 0, cell: cell, distance: 0, visitado: false, f: 0, g: 0, h: 0 };
+        const node: INodeCell = { adjacencyList: [], cell: cell, distance: 0, visitado: false, f: 0, g: 0, h: 0, numNode: cell.numberCell, previous: undefined };
 
-        graph.listNode.set(cell.numberCell, nodeCell);
+        graph.listNode.set(cell.numberCell, node);
     }
 }

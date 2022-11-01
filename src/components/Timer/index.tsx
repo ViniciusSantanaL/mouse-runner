@@ -1,15 +1,15 @@
 import Button from 'components/Button';
 import { Container } from './styles';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useMessage } from 'hooks/useMessage';
 
 interface TimerProps {
     startOrReset: boolean;
     setStartOrReset: React.Dispatch<React.SetStateAction<boolean>>;
+    time: number;
+    setTime: React.Dispatch<React.SetStateAction<number>>;
 }
-export function Timer({ startOrReset, setStartOrReset }: TimerProps) {
-    const [time, setTime] = useState(0);
-
+export function Timer({ startOrReset, setStartOrReset, time, setTime }: TimerProps) {
     const minutesToDisplay = Math.floor(time / 60);
     const secondsToDisplay = time % 60;
 
