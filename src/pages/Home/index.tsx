@@ -14,7 +14,7 @@ export default function Home() {
                 <ButtonGroup>
                     <Button onClick={() => navigate('/maze')}>START</Button>
                     <Button onClick={() => navigate('/tutorial')}>TUTORIAL</Button>
-                    <Button>REFERENCE</Button>
+                    <Button onClick={() => window.location.assign('https://github.com/ViniciusSantanaL/mouse-runner')}>REFERENCE</Button>
                 </ButtonGroup>
             </Container>
         </>
