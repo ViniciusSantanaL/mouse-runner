@@ -5,11 +5,11 @@ Um projeto que utiliza React, onde consiste em um jogo em que um rato precisa ac
 ##Como usar
 Na raiz do projeto, digite o seguinte comando:
 
-##`npm install`
+`npm install`
 
 Após o processo terminar, digite outro comando:
 
-##`npm start`
+`npm start`
 
 Pronto, seu projeto está rodando :)
 
