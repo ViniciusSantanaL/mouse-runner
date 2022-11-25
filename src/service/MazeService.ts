@@ -18,7 +18,7 @@ export abstract class MazeService {
             }
             maze.grid.push(row);
         }
-        maze.current = maze.grid[4][4];
+        maze.current = maze.grid[10][10];
         maze.current.current = true;
         maze.current.visited = true;
 
@@ -39,5 +39,24 @@ export abstract class MazeService {
             maze.grid.push(row);
         }
         return maze;
+    }
+
+    static createNewCellsAndCopyOldCells(oldGrid: ICell[][], initialCell: ICell, finalCell: ICell): ICell[][] {
+        const newGrid: ICell[][] = [];
+        for (let r = 0; r < oldGrid.length; r++) {
+            const innerArrayLenght = oldGrid[r].length;
+            const row: Array<ICell> = [];
+            for (let c = 0; c < innerArrayLenght; c++) {
+                const cell = CellService.setup(r, c, oldGrid.length);
+                cell.visited = true;
+                cell.walls = oldGrid[r][c].walls;
+                row.push(cell);
+            }
+            newGrid.push(row);
+        }
+        newGrid[initialCell.rowNum][initialCell.colNum].initial = true;
+        newGrid[finalCell.rowNum][finalCell.colNum].final = true;
+
+        return newGrid;
     }
 }

@@ -1,4 +1,3 @@
-import { useMessage } from 'hooks/useMessage';
 import { Container } from './styles';
 
 interface MessageProps {

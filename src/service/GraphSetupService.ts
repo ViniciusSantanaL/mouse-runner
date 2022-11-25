@@ -3,7 +3,7 @@ import { IGraph } from 'interface/IGraph';
 import { INodeCell } from 'interface/INode';
 
 export abstract class GraphSetupService {
-    private static setupGraphs(amountNodes: number): IGraph {
+    static setupGraphs(amountNodes: number): IGraph {
         const graph: IGraph = { listNode: new Map(), amountNode: amountNodes, initial: {} as INodeCell, final: {} as INodeCell };
         return graph;
     }
@@ -28,14 +28,14 @@ export abstract class GraphSetupService {
         const listNeighbors = this.checkNeighbors(cell, grid);
 
         if (!this.checkIfNodeExistInGraph(graph, cell.numberCell)) {
-            this.addVertices(graph, cell);
+            this.addNode(graph, cell);
         }
         const node = graph.listNode.get(cell.numberCell) as INodeCell;
 
         for (let i = 0; i < listNeighbors.length; i++) {
             const neighborCell = listNeighbors[i];
             if (!this.checkIfNodeExistInGraph(graph, neighborCell.numberCell)) {
-                this.addVertices(graph, listNeighbors[i]);
+                this.addNode(graph, listNeighbors[i]);
             }
             const neighborNode = graph.listNode.get(neighborCell.numberCell) as INodeCell;
 
@@ -69,7 +69,7 @@ export abstract class GraphSetupService {
         }
         return listNeighbors;
     }
-    static addVertices(graph: IGraph, cell: ICell) {
+    static addNode(graph: IGraph, cell: ICell) {
         const node: INodeCell = { adjacencyList: [], cell: cell, distance: 0, visitado: false, f: 0, g: 0, h: 0, numNode: cell.numberCell, previous: undefined };
 
         graph.listNode.set(cell.numberCell, node);

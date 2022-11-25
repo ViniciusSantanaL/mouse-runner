@@ -4,6 +4,7 @@ import { IMaze } from 'interface/IMaze';
 import { useEffect, useState } from 'react';
 import { GraphService } from 'service/GraphService';
 import { GraphSetupService } from 'service/GraphSetupService';
+import { MazeService } from 'service/MazeService';
 
 import { Container, StyledMaze } from './styles';
 
@@ -11,23 +12,22 @@ interface FinalMazeProps {
     maze: IMaze | null;
 }
 export function FinalMaze({ maze }: FinalMazeProps) {
-    const [finalMaze, setFinalMaze] = useState(maze);
+    const [finalMaze, setFinalMaze] = useState({ ...maze, grid: MazeService.createNewCellsAndCopyOldCells(maze?.grid as ICell[][], maze?.initial as ICell, maze?.final as ICell) });
 
     useEffect(() => {
-        if (maze) {
-            if (maze.initial && maze.final) {
-                const graph = GraphSetupService.doGraph(maze.grid, maze.initial, maze.final);
+        if (finalMaze) {
+            if (finalMaze.initial && finalMaze.final) {
+                const graph = GraphSetupService.doGraph(finalMaze.grid as ICell[][], finalMaze.initial, finalMaze.final);
                 const path = GraphService.doAStar(graph);
                 if (path) {
                     path.pop();
-                    const gridUpdated = maze.grid;
+                    const gridUpdated = finalMaze.grid as ICell[][];
 
                     for (let i = 0; i < path.length; i++) {
                         const cell = path[i].cell;
 
                         gridUpdated[cell.rowNum][cell.colNum].bestPath = true;
                     }
-                    console.log(finalMaze);
                     if (finalMaze) setFinalMaze({ ...finalMaze, grid: gridUpdated });
                 }
             }
@@ -37,11 +37,11 @@ export function FinalMaze({ maze }: FinalMazeProps) {
     return (
         <Container width={finalMaze?.width ? finalMaze?.width : 600}>
             <StyledMaze width={finalMaze?.width ? finalMaze?.width : 600}>
-                {finalMaze &&
+                {finalMaze?.grid &&
                     finalMaze.grid.map((row, index) => (
                         <div key={index}>
                             {row.map((cell, index) => (
-                                <Cell key={index} cell={cell} widthCell={finalMaze.witdhCell}>
+                                <Cell key={index} cell={cell} widthCell={finalMaze.witdhCell as number}>
                                     {cell.bestPath && 1}
                                 </Cell>
                             ))}

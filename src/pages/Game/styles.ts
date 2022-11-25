@@ -5,6 +5,7 @@ export const Container = styled.main`
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     .container-maze {
         width: 60%;
@@ -13,6 +14,11 @@ export const Container = styled.main`
     }
 
     .container-message {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         button {
             font-size: 1rem;
             margin-top: 1rem;

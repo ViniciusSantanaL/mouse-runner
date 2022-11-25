@@ -1,5 +1,4 @@
 import { ICell } from 'interface/ICell';
-import Node from './Node';
 import { StyledCell } from './styles';
 
 interface CellProps {

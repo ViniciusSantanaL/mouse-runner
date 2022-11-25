@@ -8,6 +8,7 @@ import { useLoading } from 'hooks/useLoading';
 import { useMessage } from 'hooks/useMessage';
 import { InitialCell } from 'components/InitialCell';
 import { useWindowDimensions } from 'hooks/useWindowDimensions';
+import { useTime } from 'hooks/useTime';
 
 interface MazeProps {
     maze: IMaze | null;
@@ -18,6 +19,7 @@ export function InitialMaze({ maze, setMaze }: MazeProps) {
     const { height } = useWindowDimensions();
     const [positionInitialCell, setPositionInitialCell] = useState<number[]>([]);
     const [positionFinalCell, setPositionFinalCell] = useState<number[]>([]);
+    const {clearTimes} = useTime();
 
     const { message, setMessage } = useMessage();
 
@@ -61,6 +63,7 @@ export function InitialMaze({ maze, setMaze }: MazeProps) {
         } else {
             setMaze(MazeService.setup(800, 20, 20));
         }
+        clearTimes();
     }, []);
 
     useEffect(() => {

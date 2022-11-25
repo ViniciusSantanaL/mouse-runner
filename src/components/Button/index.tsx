@@ -9,11 +9,11 @@ interface ButtonProps {
     disable?: boolean;
 }
 
-export default function Button(props: ButtonProps) {
+export default function Button({color,selected = false,onClick,disable,children,type}: ButtonProps) {
     return (
-        <StyledButton color={props.color} selected={props.selected}>
-            <button type={props.type} onClick={props.onClick} disabled={props.disable}>
-                {props.children}
+        <StyledButton color={color} selected={selected}>
+            <button type={type} onClick={onClick} disabled={disable}>
+                {children}
             </button>
         </StyledButton>
     );

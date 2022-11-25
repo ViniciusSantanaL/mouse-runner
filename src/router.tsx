@@ -1,4 +1,5 @@
 import { MessageProvider } from 'hooks/useMessage';
+import { TimeProvider } from 'hooks/useTime';
 import { Game } from 'pages/Game';
 import Home from 'pages/Home';
 import Tutorial from 'pages/Tutorial';
@@ -8,13 +9,15 @@ export default function AppRouter() {
     return (
         <main className="container">
             <Router>
-                <MessageProvider>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="maze" element={<Game />} />
-                        <Route path="tutorial" element={<Tutorial />}></Route>
-                    </Routes>
-                </MessageProvider>
+                <TimeProvider>
+                    <MessageProvider>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="maze" element={<Game />} />
+                            <Route path="tutorial" element={<Tutorial />}></Route>
+                        </Routes>
+                    </MessageProvider>
+                </TimeProvider>
             </Router>
         </main>
     );

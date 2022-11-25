@@ -11,23 +11,12 @@ export const Container = styled.div`
     gap: 1rem;
 
     text-align: center;
-    p {
-        font-size: 4rem;
-        @media (max-width: 1300px) {
-            font-size: 2rem;
-        }
-        color: #fff;
-        letter-spacing: 1rem;
-    }
     h2 {
-        letter-spacing: 1rem;
-        font-size: 4rem;
+        letter-spacing: 0.25rem;
+        font-size: 2rem;
         color: white;
         font-weight: 600;
-        @media (max-width: 1300px) {
-            width: 200px;
-            font-size: 2rem;
-        }
+        
     }
     button {
         width: 120px;
